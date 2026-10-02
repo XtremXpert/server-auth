@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_oauth_provider_form_groups" model="ir.ui.view">
+        <field name="name">auth.oauth.provider.form.oidc.groups</field>
+        <field name="model">auth.oauth.provider</field>
+        <field name="inherit_id" ref="auth_oidc.view_oidc_provider_form" />
+        <field name="arch" type="xml">
+            <field name="jwks_uri" position="after">
+                <field name="oidc_create_users" />
+                <field name="oidc_link_by_email" />
+                <field name="oidc_sync_groups" />
+                <field name="oidc_user_group" invisible="not oidc_sync_groups" />
+                <field name="oidc_admin_group" invisible="not oidc_sync_groups" />
+                <field name="oidc_admin_template_id" invisible="not oidc_sync_groups" />
+                <field name="oidc_user_template_id" invisible="not oidc_sync_groups" />
+            </field>
+        </field>
+    </record>
+</odoo>
